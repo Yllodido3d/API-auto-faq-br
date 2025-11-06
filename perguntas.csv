@@ -1,0 +1,73 @@
+como resetar senha,clique em "esqueci minha senha",conta
+esqueci minha senha,clique em "esqueci minha senha" na tela de login,conta
+como mudar email,acesse "configurações" e altere o email,conta
+como trocar senha,acesse "configurações" e selecione "alterar senha",conta
+como criar conta,acesse a tela inicial e clique em "criar conta",conta
+como excluir conta,envie solicitação ao suporte,conta
+não consigo entrar na conta,verifique sua senha e tente novamente,conta
+minha conta foi bloqueada,aguarde 24h ou entre em contato com o suporte,conta
+minha conta foi hackeada,troque sua senha imediatamente e contate o suporte,conta
+como recuperar conta,clique em "esqueci minha senha" ou fale com o suporte,conta
+como trocar número,acesse configurações e altere seu telefone,conta
+não recebo email de confirmação,verifique sua caixa de spam,conta
+não recebo código de verificação,verifique se o número está correto,conta
+como ativar autenticação de dois fatores,acesse segurança e ative 2FA,conta
+posso ter duas contas,não é recomendado por motivos de segurança,conta
+como alterar nome de usuário,acesse perfil e selecione editar nome,conta
+minha conta sumiu,tente fazer login novamente com o email correto,conta
+não consigo confirmar cadastro,verifique seu email de confirmação,conta
+como mudar foto de perfil,acesse perfil e toque na imagem,conta
+não lembro meu email,verifique em seu histórico de login,conta
+
+como cadastrar cartão,acesse pagamentos e clique em adicionar cartão,pagamento
+como trocar cartão,vá em métodos de pagamento e selecione editar,pagamento
+como remover cartão,acesse métodos de pagamento e remova o cartão,pagamento
+meu cartão não passa,verifique saldo ou validade do cartão,pagamento
+aceita pix,sim, aceitamos PIX para pagamentos,pagamento
+posso parcelar,sim, aceitamos parcelamento em até 3x sem juros,pagamento
+como gerar boleto,acesse a tela de pagamento e escolha boleto,pagamento
+não consigo pagar,verifique sua conexão ou tente outro método,pagamento
+como ver fatura,acesse histórico de pagamentos,pagamento
+fiz o pagamento mas não caiu,aguarde até 24h úteis,pagamento
+posso pagar depois,não, o pagamento deve ser feito antes da entrega,pagamento
+como mudar forma de pagamento,acesse sua conta e altere em pagamentos,pagamento
+qual o valor mínimo de compra,o valor mínimo é R$10,00,pagamento
+posso pagar com dois cartões,não, aceitamos apenas um método por compra,pagamento
+onde coloco cupom,na tela de checkout antes do pagamento,pagamento
+meu cupom não funciona,verifique validade e se já foi usado,pagamento
+como obter desconto,acompanhe promoções no app,pagamento
+como ver comprovante de pagamento,acesse histórico e baixe o recibo,pagamento
+paguei duas vezes,entre em contato com o suporte com o comprovante,pagamento
+como ativar cashback,verifique as condições de elegibilidade,pagamento
+
+como falar com o suporte,acesse "ajuda" no app ou site,suporte
+qual o horário do suporte,nosso suporte funciona das 8h às 18h,suporte
+o chat não funciona,tente atualizar a página,suporte
+tem atendimento por telefone,sim, número disponível na aba contato,suporte
+posso abrir chamado por email,sim, envie para suporte@empresa.com,suporte
+demora pra responder,em média respondemos em até 24h,suporte
+como cancelar pedido,acesse pedidos e selecione cancelar,suporte
+como reembolsar pedido,acesse histórico e solicite reembolso,suporte
+quanto tempo demora o reembolso,o prazo é de até 5 dias úteis,suporte
+como rastrear pedido,acesse meus pedidos e clique em rastrear,suporte
+meu pedido atrasou,verifique o rastreio ou entre em contato,suporte
+produto veio errado,solicite troca pelo suporte,suporte
+produto veio danificado,envie foto e solicite devolução,suporte
+não recebi confirmação de pedido,verifique seu email,suporte
+como alterar endereço,acesse perfil > endereços e edite,suporte
+posso alterar o pedido depois de feito,não é possível após a confirmação,suporte
+meu pedido sumiu,verifique o rastreio ou suporte,suporte
+como reclamar de um pedido,acesse ajuda > reclamação,suporte
+como avaliar o atendimento,acesse histórico e avalie,suporte
+onde vejo status do pedido,em “meus pedidos”,suporte
+
+como atualizar o app,acesse a loja de aplicativos e clique em atualizar,app
+app não abre,tente reiniciar o celular,app
+app travando,limpe o cache do app,app
+não consigo instalar o app,verifique espaço disponível,app
+onde baixo o app,na Play Store ou App Store,app
+meu app fechou sozinho,reinicie e tente novamente,app
+não consigo logar no app,verifique sua conexão,app
+app muito lento,verifique se há atualização disponível,app
+como limpar cache,acesse configurações do app > armazenamento,app
+app não mostra notificações,verifique permissões do sistema,app
