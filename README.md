@@ -20,14 +20,3 @@ All routes (except `/status`) require an **API Key**:
 ?api_key=123abc
 ````
 
-##💡 Example Usage
-curl -X POST "https://your-render-url.onrender.com/answer?api_key=123abc" \
-     -H "Content-Type: application/json" \
-     -d '{"question": "what is your name?"}'
-
-##📦 Deploy
-
-The project is ready for deployment on Render.com
-
-and integration with RapidAPI
-.
