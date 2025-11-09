@@ -214,8 +214,9 @@ async def status():
     conn.close()
 
     return {
-        "status": "online",
+        "status": "up",
         "version": "1.2",
         "total_answers": total,
         "uptime_seconds": uptime
     }
+
