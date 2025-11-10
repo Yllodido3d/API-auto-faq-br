@@ -222,5 +222,11 @@ async def status(api_key: str = Query(None)):  # ← ADICIONE = None
         "total_answers": total,
         "uptime_seconds": uptime
     }
+# ======================
+# 10. Helth Check (rapidapi is weird)
+# ======================
+@app.get("/health")
+async def health():
+    return {"status": "up"}
 
 
