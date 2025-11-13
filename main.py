@@ -195,40 +195,92 @@ async def add_answer(item: NewAnswer, api_key: str = Query(...)):
 
 
 # ======================================================
-# 9. IMPORT CSV (also updates cache)
+# 9. IMPORT CSV (secure version + updates cache)
 # ======================================================
 @app.post("/import_csv")
 async def import_csv(file: UploadFile, api_key: str = Query(...)):
     validate_api_key(api_key)
 
+    # -----------------------
+    # 1. File size limit
+    # -----------------------
+    file.file.seek(0, 2)
+    size = file.file.tell()
+    file.file.seek(0)
+
+    MAX_FILE_SIZE = 2_000_000  # ~2 MB
+    if size > MAX_FILE_SIZE:
+        raise HTTPException(400, detail="CSV file too large. Max allowed is 2 MB.")
+
+    # -----------------------
+    # 2. Read file
+    # -----------------------
     content = await file.read()
-    lines = content.decode("utf-8").splitlines()
+    try:
+        lines = content.decode("utf-8").splitlines()
+    except UnicodeDecodeError:
+        raise HTTPException(400, detail="Invalid file encoding. File must be UTF-8.")
+
     reader = csv.reader(lines)
 
+    # -----------------------
+    # 3. Max number of rows
+    # -----------------------
+    rows = list(reader)
+    MAX_ROWS = 500
+    if len(rows) > MAX_ROWS:
+        raise HTTPException(400, detail="CSV contains too many rows. Max allowed is 500.")
+
+    # -----------------------
+    # 4. Validate fields
+    # -----------------------
+    for row in rows:
+        if len(row) < 2:
+            raise HTTPException(400, detail="Each row must contain at least question and answer.")
+
+        q = row[0].strip()
+        a = row[1].strip()
+        c = row[2].strip() if len(row) >= 3 else None
+
+        if len(q) > 500:
+            raise HTTPException(400, detail="Question too long. Max length is 500 characters.")
+
+        if len(a) > 2000:
+            raise HTTPException(400, detail="Answer too long. Max length is 2000 characters.")
+
+        if c and len(c) > 100:
+            raise HTTPException(400, detail="Category too long. Max length is 100 characters.")
+
+    # -----------------------
+    # 5. Insert into database
+    # -----------------------
     conn = sqlite3.connect("answers.db")
     cur = conn.cursor()
 
     count = 0
-    for row in reader:
-        if len(row) >= 2:
-            q = row[0].strip()
-            a = row[1].strip()
-            cat = row[2].strip() if len(row) >= 3 else None
+    for row in rows:
+        q = row[0].strip()
+        a = row[1].strip()
+        c = row[2].strip() if len(row) >= 3 else None
 
-            q_norm = unidecode(q.lower())
+        q_norm = unidecode(q.lower())
 
-            cur.execute(
-                "INSERT INTO answers (question, answer, question_norm, category) VALUES (?, ?, ?, ?)",
-                (q, a, q_norm, cat)
-            )
-            count += 1
+        cur.execute(
+            "INSERT INTO answers (question, answer, question_norm, category) VALUES (?, ?, ?, ?)",
+            (q, a, q_norm, c)
+        )
+        count += 1
 
     conn.commit()
     conn.close()
 
-    load_cache()  # refresh cache
+    # -----------------------
+    # 6. Update in-memory cache
+    # -----------------------
+    load_cache()
 
     return {"status": "ok", "added": count}
+
 
 
 # ======================================================
@@ -257,3 +309,4 @@ async def status(api_key: str = Query(None)):
 @app.head("/health")
 async def health_check(request: Request):
     return JSONResponse({"status": "up"})
+
